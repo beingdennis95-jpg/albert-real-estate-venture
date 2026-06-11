@@ -62,6 +62,26 @@
     });
   }
 
+  // --- Buyer lead capture multi-step form ---
+  var captureSearchBtn = document.getElementById('captureSearchBtn');
+  var captureBackBtn = document.getElementById('captureBackBtn');
+  var captureStep1 = document.getElementById('captureStep1');
+  var captureStep2 = document.getElementById('captureStep2');
+
+  if (captureSearchBtn && captureStep1 && captureStep2) {
+    captureSearchBtn.addEventListener('click', function () {
+      captureStep1.style.display = 'none';
+      captureStep2.style.display = 'block';
+      captureStep2.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    });
+  }
+  if (captureBackBtn && captureStep1 && captureStep2) {
+    captureBackBtn.addEventListener('click', function () {
+      captureStep2.style.display = 'none';
+      captureStep1.style.display = 'block';
+    });
+  }
+
   // --- Smooth scroll for anchor links ---
   document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
     anchor.addEventListener('click', function (e) {
